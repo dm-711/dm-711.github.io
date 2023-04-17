@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home/dm711</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="grid-container">
+
+        <div class="dialog-container">
+            <div class="signup-dialog">
+                <h1>Sign up</h1>
+                <br>
+                <div class="error"></div>
+                <br>
+                <div class="close-btn" onclick="closeDialog()">&times;</div>
+                <form id="signup-form" onsubmit="return validateSignUp()">
+                    <label for="first-name">First Name:</label>
+                    <br>
+                    <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                    <br>
+                    <label for="last-name">Last Name:</label>
+                    <br>
+                    <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <br>
+                    <label for="username">Username:</label>
+                    <br>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <br>
+                    <label for="confirm_password">Confirm Password:</label>
+                    <br>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Enter your password" required>
+                    <br>
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+            
+            <div class="login-dialog">
+                <h1>Login</h1>
+                <br>
+                <div class="error"></div>
+                <br>
+                <div class="close-btn" onclick="closeDialog()">&times;</div>
+                <form id="login-form" onsubmit="return validateLogIn()">
+                    <label for="first-name">Username:</label>
+                    <br>
+                    <input type="text" id="username-login" name="username" placeholder="Enter your username" required>
+                    <br>
+                    <label for="password">Password:</label>
+                    <br>
+                    <input type="password" id="password-login" name="password" placeholder="Enter your password" required>
+                    <br>
+                    <div class="forgot-password">Forgot password?</div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container">
+                <div class="menu" onclick="openSidebar()"><i class="material-symbols-outlined">menu</i></div>
+                <div class="title">Home</div>
+                <div class="login">
+                    <div class="button login-button" onclick="Login()">Login</div>
+                    <div class="button signup-button" onclick="SignUp()">Sign up</div>
+                    <div class="user"></div>
+                    <div class="logout" onclick="LogOut()"><i class="material-symbols-outlined">login</i></div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Left Sidebar-->
+        <aside class="left-sidebar">
+            <div class="left-sidebar-container">
+                <div class="navigator">
+                    <a class="logo-small"><span>dm</span></a>
+                    <a class="logo"><span>dm711</span></a>
+                    <a class="home current"><i class="material-symbols-outlined material-symbols-filled current">home</i><span>Home</span></a>
+                    <a class="contents" onclick="toggleShowmore()"><i class="material-symbols-outlined">tag</i><span>Contents</span></a>
+                    <a class="favorite"><i class="material-symbols-outlined">favorite</i><span>Favorite</span></a>
+                </div>
+                <div class="footer">
+                    <p>Website developed by</p>
+                    <p><span class="name">Duy Minh Truong</span></p>
+                    <br>
+                    <p>Contact me</p>
+                    <div class="contact">
+                        <a class="fa fa-facebook"></a>
+                        <a class="fa fa-instagram"></a>
+                        <a class="fa fa-twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- End Left Sidebar -->
+
+        <!-- Right Sidebar-->
+        <aside class="right-sidebar">
+            <div class="right-sidebar-container">
+                <div class="search-container">
+                    <div class="search-icon">
+                        <i class="material-symbols-outlined">search</i>
+                    </div>
+                    <input type="text" placeholder="Search...">
+                    <div class="clear-icon">
+                        <i class="material-symbols-outlined">clear</i>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="categories">
+                    <h1>Categories</h1>
+                    <select>
+                        <option value="">Select an category...</option>
+                        <option>Coding</option>
+                        <option>CSS</option>
+                        <option>GameDev</option>
+                        <option>HTML</option>
+                        <option>Java</option>
+                        <option>Javascript</option>
+                        <option>Programming</option>
+                        <option>Technology</option>
+                        <option>Web Design</option>
+                        <option>Entertainment</option>
+                        <option>Gaming</option>
+                        <option>Anime</option>
+                        <option>Music</option>
+                    </select>
+                    <h2>Top search</h2>
+                    <a class="tag">#Web Design</a>
+                    <a class="tag">#Java</a>
+                    <a class="tag">#GameDev</a>
+                    <a class="tag">#Entertainment</a>
+                    <a class="tag">#Gaming</a>
+                </div>
+                <!-- End Categories -->
+
+                <!-- Archives -->
+                <div class="archives">
+                    <h1>Archives</h1>
+                    <details>
+                        <summary>2023 archive</summary>
+                        <ul>
+                            <li><a href="#">January</a></li>
+                            <li><a href="#">February</a></li>
+                            <li><a href="#">March</a></li>
+                            <li><a href="#">April</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>2022 archive</summary>
+                        <ul>
+                            <li><a href="#">January</a></li>
+                            <li><a href="#">February</a></li>
+                            <li><a href="#">March</a></li>
+                            <li><a href="#">April</a></li>
+                            <li><a href="#">May</a></li>
+                            <li><a href="#">June</a></li>
+                            <li><a href="#">July</a></li>
+                            <li><a href="#">August</a></li>
+                            <li><a href="#">September</a></li>
+                            <li><a href="#">October</a></li>
+                            <li><a href="#">November</a></li>
+                            <li><a href="#">December</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>2021 archive</summary>
+                        <ul>
+                            <li><a href="#">January</a></li>
+                            <li><a href="#">February</a></li>
+                            <li><a href="#">March</a></li>
+                            <li><a href="#">April</a></li>
+                            <li><a href="#">May</a></li>
+                            <li><a href="#">June</a></li>
+                            <li><a href="#">July</a></li>
+                            <li><a href="#">August</a></li>
+                            <li><a href="#">September</a></li>
+                            <li><a href="#">October</a></li>
+                            <li><a href="#">November</a></li>
+                            <li><a href="#">December</a></li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>2020 archive</summary>
+                        <ul>
+                            <li><a href="#">January</a></li>
+                            <li><a href="#">February</a></li>
+                            <li><a href="#">March</a></li>
+                            <li><a href="#">April</a></li>
+                            <li><a href="#">May</a></li>
+                            <li><a href="#">June</a></li>
+                            <li><a href="#">July</a></li>
+                            <li><a href="#">August</a></li>
+                            <li><a href="#">September</a></li>
+                            <li><a href="#">October</a></li>
+                            <li><a href="#">November</a></li>
+                            <li><a href="#">December</a></li>
+                        </ul>
+                    </details> 
+                </div>
+                <!-- End Archives -->
+
+                <!-- Image Slider -->
+                <div class="slider-container">
+                    <h1>Top Articles</h1>
+                    <br>
+                    <div>
+                        <div class="slider">
+                            <img src="https://ubiqum.com/assets/uploads/2019/06/learn-css-part-2.jpeg" alt="Is Web Design hard?" class="active" />
+                            <img src="https://i1.sndcdn.com/artworks-aRb8dhrZIHOo6pKY-pFzp7A-t500x500.jpg" alt="This season best song?" class="next" />
+                            <img src="https://i.pinimg.com/originals/0f/7b/80/0f7b801718ae3b509c66d5b574d7ac07.jpg" alt="Streamer abandoned his viewers to play game overnight with his wife" />
+                            <img src="https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg" alt="Missing content" />
+                            <img src="https://i.natgeofe.com/n/2a832501-483e-422f-985c-0e93757b7d84/6.jpg?w=1272&h=954" alt="Missing content" class="prev" />
+                            <div class="arrow-nav left" onclick="prevImage()">&#10094;</div>
+                            <div class="arrow-nav right" onclick="nextImage()">&#10095;</div>
+                            <h2 class="title"></h2>
+                            <div class="dot-nav">
+                                <button class="active" onclick="showImage(0)"></button>
+                                <button onclick="showImage(1)"></button>
+                                <button onclick="showImage(2)"></button>
+                                <button onclick="showImage(3)"></button>
+                                <button onclick="showImage(4)"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Image Slider -->
+
+            </div>
+        </aside>
+        <!-- End Right Sidebar -->
+
+        <!-- Main -->
+        <main class="main-container">
+            <div class="article">
+                <div>
+                    <h1>General</h1>
+                    <p style="color: gray; font-size: 12px;">2023-04-14</p>
+                    <div class="tags">
+                        <a href="#" class="tag">Web Design</a>
+                    </div>
+                    <p>Hello, my name is <i>Duy Minh Truong</i> and I am currently studying <i>Software Engineering</i> in Vietnam. Recently, I have <s><span style="text-decoration: line-through;"><i>forced</i></span></s> taken an interest in <i>Web Design</i> and have been learning about it. For this website, I wanted to create a platform that combines elements of a blog and a social media site.</p>
+                    <br>
+                    <p>I developed this website from <i>scratch</i>, without using any <i>framework</i>, while referencing multiple sources for guidance.</p>
+                    <br>
+                    <p><i>Due to <s><span style="text-decoration: line-through;"><i>laziness</i></span></s> technical limitations, I'll be using images from the internet instead of my own. I apologize for any inconvenience this may cause, and I'll look for a solution to address this issue as soon as possible.</i></p>
+                    <br>
+                    <p>Please note that certain features on the website are not operational, as it is designed for practice purposes only and does not support all functionalities.</p>
+                    <br>
+                    <p>The source code is available at the following link: <a class="source-link"><i>LINK HERE</i></a>.</p>
+                </div>
+                <br>
+                <div class="reaction">
+                    <div class="favorites" onclick="toggleFavorites(this)">
+                        <i class="material-symbols-outlined">favorite</i>
+                        <span class="favorites-count">3</span>
+                    </div>
+                    <div class="comment">
+                        <span class="comment-count">2</span>
+                        <i class="material-symbols-outlined">comment</i>
+                    </div>
+                </div>
+            </div>
+            <div class="article">
+                <div>
+                    <h1>How this site was created?</h1>
+                    <p style="color: gray; font-size: 12px;">2023-04-15</p>
+                    <div class="tags">
+                        <a href="#" class="tag">Web Design</a>
+                        <a href="#" class="tag">HTML</a>
+                        <a href="#" class="tag">CSS</a>
+                        <a href="#" class="tag">Javascript</a>
+                    </div>
+                    <p>This side was create with HTML, CSS and Javascript</p>
+                </div>
+                <br>
+                <div class="image">
+                    <img src="https://p92.com/binaries/content/gallery/p92website/technologies/htmlcssjs-details.png">
+                </div>
+                <br>
+                <div>
+                    <p>I used a grid-based layout with a header, left sidebar, main content area, and right sidebar, with styles that create a modern appearance.</p>
+                </div>
+                <br>
+                <div>
+                    <h1>Features</h1>
+                    <br>
+                    <h2>1. Search bar</h2>
+                    <br>
+                    <p>The search bar is the first thing I wanted to make for this website. The search icon highlights upon clicking, and an 'X' button allows for the removal of typed text.</p>
+                    <div class="search-container"
+                        style="position: relative; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
+                        <div class="search-icon">
+                            <i class="material-symbols-outlined">search</i>
+                        </div>
+                        <input type="text" placeholder="Search...">
+                        <div class="clear-icon">
+                            <i class="material-symbols-outlined">clear</i>
+                        </div>
+                    </div>
+                    <br>
+                    <h2>2. Icon and navigation bar</h2>
+                    <br>
+                    <div class="image">
+                        <img src="https://fonts.gstatic.com/s/img/knowledge/glossary/terms/icon_symbol/images/thumbnail_462178341.svg">
+                    </div>
+                    <br>
+                    <p>I incorporate internet fonts, such as Google Fonts and Font Awesome icons, and have ensured responsive
+                        adjustments are in place.</p>
+                    <br>
+                    <h2>3. Responsive</h2>
+                    <br>
+                    <div class="image">
+                        <img src="https://www.tutorialspoint.com/css/images/responsive.jpg">
+                    </div>
+                    <br>
+                    <p>I carefully designed the responsive, hard to put it in words. There still bugs when you dramatically resize the site in the extreme way, I still don't know how to fix, maybe it trigger something that I can't find out.</p>
+                    <br>
+                    <p>To fix the responsive issue if occur, you can reload the site, it fixes most cases.</p>
+                    <br>
+                    <p>P/S: On the right sidebar, when you open up an archive, if it too long, you can still scroll if separately, I hidden its scrollbar.</p>
+                    <br>
+                    <h2>4. Functions</h2>
+                    <br>
+                    <div class="image">
+                        <img src="https://cdn.hswstatic.com/gif/gears-1.jpg">
+                    </div>
+                    <br>
+                    <p>You can "heart" the article by click on the "heard". The counter will increase, and when you click again, it back to previous state.</p>
+                    <br>
+                    <p>You can click on "Show more" to show more contents, or just click to "Contents" on the left sidebar. The site will scroll to the first article showed up.</p>
+                    <br>
+                    <h2> 5. Animations</h2>
+                    <br>
+                    <div class="image">
+                        <img src="https://smartslider3.com/wp-content/uploads/2019/01/imageslider-1-780x410.png">
+                    </div>
+                    <br>
+                    <p>I wanted to add more animation, but the code is messed up when I try adding it. I tried my best on "Top Articles", struggled with the CSS and Javascript for it very much.</p>
+                    <br>
+                    <h2> 6. Forms</h2>
+                    <br>
+                    <p>I have two forms of login and sign up, each have validation as well.</p>
+                    <br>
+                    <div class="image">
+                        <img src="https://jerryjenkins.com/wp-content/uploads/2018/02/How-to-Write-a-Novel.jpg">
+                    </div>
+                    <br>
+                    <h2># And more..</h2>
+                    <br>
+                    <p>There are may still more features, but the aboves is most significant one I wanted to mention :)</p>
+                    <br>
+                    <p>Now if you want, please enjoy the random contents below...</p>
+                </div>
+                <br>
+                <div class="reaction">
+                    <div class="favorites" onclick="toggleFavorites(this)">
+                        <i class="material-symbols-outlined">favorite</i>
+                        <span class="favorites-count">5</span>
+                    </div>
+                    <div class="comment">
+                        <span class="comment-count">11</span>
+                        <i class="material-symbols-outlined">comment</i>
+                    </div>
+                </div>
+            </div>
+            <div class="showmore">
+                <div class="showmore-button" onclick="toggleShowmore()">Show more</div>
+            </div>
+            <div class="article hidden">
+                <div>
+                    <h1>Is Web Design hard?</h1>
+                    <p style="color: gray; font-size: 12px;">2023-04-16</p>
+                    <div class="tags">
+                        <a href="#" class="tag">Web Design</a>
+                    </div>
+                    <br>
+                    <div class="image">
+                        <img src="https://ubiqum.com/assets/uploads/2019/06/learn-css-part-2.jpeg">
+                    </div>
+                    <br>
+                    <p>Yes I think it's hard.</p>
+                    <br>
+                    <p>I worked for days for this page. The site still has some problem with the code organization or functionalities :(</p>
+                    <br>
+                    <p>I will try my best to improve it in the future.</p>
+                </div>
+                <br>
+                <div class="reaction">
+                    <div class="favorites" onclick="toggleFavorites(this)">
+                        <i class="material-symbols-outlined">favorite</i>
+                        <span class="favorites-count">56</span>
+                    </div>
+                    <div class="comment">
+                        <span class="comment-count">64</span>
+                        <i class="material-symbols-outlined">comment</i>
+                    </div>
+                </div>
+            </div>
+            <div class="article hidden">
+                <div>
+                    <h1>This season best song?</h1>
+                    <p style="color: gray; font-size: 12px;">2023-04-16</p>
+                    <div class="tags">
+                        <a class="tag">Music</a>
+                        <a class="tag">Anime</a>
+                    </div>
+                    <br>
+                    <div class="image">
+                        <img src="https://i1.sndcdn.com/artworks-aRb8dhrZIHOo6pKY-pFzp7A-t500x500.jpg">
+                    </div>
+                    <br>
+                    <p>Have you listen to the newest YOASOBI song? This was different from the others and I love it.</p>
+                    <br>
+                    <p>And for the anime, Oshi no Ko, I read the manga and feel that it too dramatic for me to handle.</p>
+                    <br>
+                    <p>Don't ask me how, I already erased my memory about that story :(</p>
+                </div>
+                <br>
+                <div class="reaction">
+                    <div class="favorites" onclick="toggleFavorites(this)">
+                        <i class="material-symbols-outlined">favorite</i>
+                        <span class="favorites-count">32</span>
+                    </div>
+                    <div class="comment">
+                        <span class="comment-count">22</span>
+                        <i class="material-symbols-outlined">comment</i>
+                    </div>
+                </div>
+            </div>
+            <div class="article hidden">
+                <div>
+                    <h1>Streamer abandoned his viewers to play game overnight with his wife</h1>
+                    <p style="color: gray; font-size: 12px;">2023-04-16</p>
+                    <div class="tags">
+                        <a class="tag">Entertainment</a>
+                        <a class="tag">Gaming</a>
+                    </div>
+                    <br>
+                    <div class="image">
+                        <img src="https://i.pinimg.com/originals/0f/7b/80/0f7b801718ae3b509c66d5b574d7ac07.jpg">
+                    </div>
+                    <br>
+                    <p>Once upon a time, there was a famous streamer who had a loyal following of viewers. He was known for his witty banter, engaging gameplay, and charming personality. One evening, as he was streaming his latest game, his wife came into the room and asked if he wanted to play together.</p>
+                    <br>
+                    <p>The streamer hesitated for a moment, glancing at his computer screen and the chat full of enthusiastic viewers. But then he remembered how long it had been since he and his wife had spent quality time together, and he knew what he had to do. He abandoned his viewers, promising to be back soon, and logged off.</p>
+                    <br>
+                    <p>What followed was an epic gaming session, as the streamer and his wife played into the wee hours of the morning. They laughed, joked, and competed against each other, completely lost in the world of the game. The streamer forgot all about his viewers, until he woke up the next morning to a flood of angry messages and comments.</p>
+                    <br>
+                    <p>Feeling guilty, the streamer quickly apologized to his viewers, promising to make it up to them with an extra-long stream the next day. But as he looked back on the night before, he couldn't help but smile at the memories he had made with his wife. He realized that sometimes, it's worth abandoning your fans for a little bit to focus on the people who matter most.</p>
+                </div>
+                <br>
+                <div class="reaction">
+                    <div class="favorites" onclick="toggleFavorites(this)">
+                        <i class="material-symbols-outlined">favorite</i>
+                        <span class="favorites-count">19</span>
+                    </div>
+                    <div class="comment">
+                        <span class="comment-count">14</span>
+                        <i class="material-symbols-outlined">comment</i>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- End Main -->
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

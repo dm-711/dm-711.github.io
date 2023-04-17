@@ -322,6 +322,9 @@ updateTitle();
 /* Form Validate */
 
 function validateLogIn() {
+
+  event.preventDefault();
+
   let username = document.forms["login-form"]["username-login"].value;
   let password = document.forms["login-form"]["password-login"].value;
   let errorElement = document.querySelector(".login-dialog .error");
@@ -371,6 +374,9 @@ function validateLogIn() {
 }
 
 function validateSignUp() {
+
+  event.preventDefault();
+
   let firstName = document.forms["signup-form"]["first-name"].value;
   let lastName = document.forms["signup-form"]["last-name"].value;
   let email = document.forms["signup-form"]["email"].value;
@@ -491,4 +497,3 @@ function LogOut() {
 }
 
 /* End Form Validate */
-

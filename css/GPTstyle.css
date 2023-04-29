@@ -1,0 +1,156 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+textarea, input {
+    font-family: sans-serif;
+}
+
+/* Main container */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1rem;
+    }
+}
+
+/* Title container */
+.title-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title-container h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.title-container p {
+    font-style: italic;
+}
+
+/* Function container */
+.function-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .function-container {
+        padding: 1rem;
+    }
+}
+
+/* Function */
+.function {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Input text */
+.function label[for="text"],
+.function textarea#text {
+    width: 100%;
+}
+
+.function textarea#text {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+/* Input key */
+.function label[for="key"],
+.function input#key {
+    width: 100%;
+}
+
+.function input#key {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.function button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.function button:hover {
+    background-color: #555;
+}
+
+.function button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Output result */
+.function label[for="result"],
+.function textarea#result {
+    width: 100%;
+}
+
+.function textarea#result {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+/* Copy result to clipboard */
+.function button#copy {
+    margin-bottom: 1rem;
+}
+
+/* Text and result length */
+#length {
+    margin-top: 1rem;
+}
+
+#length p {
+    margin-bottom: 0.5rem;
+}
+
+/* Canvas */
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+

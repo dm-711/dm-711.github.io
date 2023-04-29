@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMCipher</title>
+    <!-- Style -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/GPTstyle.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="title-container">
+            <h1>DM-Cipher</h1>
+            <p><i>Encryption and Decryption</i></p>
+            <p><i>Made by dm-711</i></p>
+        </div>
+
+        <div class="function-container">
+            <div class="function">
+                <!-- Input text -->
+                <label for="text">Enter text:</label><br>
+                <textarea id="text" cols="60" rows="5" spellcheck="false"></textarea><br>
+                <!-- Input key -->
+                <label for="key">Enter encryption key:</label><br>
+                <input type="password" id="key" size="36"><br>
+                <!-- Buttons -->
+                <button onclick="encrypt(); countLengths();">Encrypt</button>
+                <button onclick="decrypt(); countLengths();">Decrypt</button><br>
+                <!-- Output result -->
+                <label for="result">Result:</label><br>
+                <textarea id="result" cols="60" rows="5" readonly></textarea><br>
+                <!-- Copy result to clipboard -->
+                <button onclick="copyText()">Copy to clipboard</button>
+                <!-- Text and result length -->
+                <div id="length">
+                    <p>Text length: <span id="text-length"></span></p>
+                    <p>Result length: <span id="result-length"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <!-- Scripts -->
+    <script src="js/seedrandom.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/background.js"></script> -->
+</body>
+
+</html>
